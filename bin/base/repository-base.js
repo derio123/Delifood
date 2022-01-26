@@ -2,33 +2,35 @@
 
 const mongoose = require('mongoose')
 
-class RepositoryBase {
+class repositoryBase {
 
-    constructor() { }
+    constructor(model) {
+        this._model = mongoose.model(model)
+     }
 
     async create(data) {
-        let produto = new ProdutoModel(data);
-        let result = await produto.save();
+        let modelo = new this._model(data);
+        let result = await modelo.save();
         return result;
     }
 
     async update(id, data) {
-        await ProdutoModel.findByIdAndUpdate(id, { $set:data })
-        let result = await ProdutoModel.findById(id)
+        await this._model.findByIdAndUpdate(id, { $set:data })
+        let result = await this._model.findById(id)
         return result;
     }
 
     async getAll() {
-       return await ProdutoModel.find();
+       return await this._model.find();
     }
 
     async getById(id) {
-        return await ProdutoModel.findById(id);
+        return await this._model.findById(id);
     }
 
     async remove(id) {
-        return await ProdutoModel.findByIdAndRemove(id);
+        return await this._model.findByIdAndRemove(id);
     }
 }
 
-module.exports = RepositoryBase;
+module.exports = repositoryBase;

@@ -1,33 +1,51 @@
 'use strict'
 
-require('../models/produto-model')
 const repository = require('../repositories/produto-repository')
+const _repo = new repository();
+const validation = require('../bin/helpers/validation')
+const ctrlBase = require('../bin/base/controller-base')
 
-function produtoController() {}
+function produtoController() { }
 
 produtoController.prototype.post = async (req, res) => {
-    let result = await new repository().create(req.body)
-    res.status(201).send(result);
+
+    let _validationContract = new validation();
+
+    _validationContract.isRequired(req.body.nome, 'Nome é obrigatorio!');
+    _validationContract.isRequired(req.body.descricao, 'Descrição é obrigatorio!');
+    _validationContract.isRequired(req.body.preco, 'Preço é obrigatorio!');
+    _validationContract.isRequired(req.body.foto, 'Insira sua foto!');
+
+    if (req.body.preco) {
+        _validationContract.isTrue(req.body.preco == 0, 'O preço deve ser maior que zero.')
+    }
+    ctrlBase.post(_repo, _validationContract, res, req);
 }
 
 produtoController.prototype.put = async (req, res) => {
-    let produtoSearch = await new repository().update(req.params.id, req.body)
-    res.status(202).send(produtoSearch)
+
+    _validationContract.isRequired(req.body.nome, 'Nome é obrigatorio!');
+    _validationContract.isRequired(req.body.descricao, 'Descrição é obrigatorio!');
+    _validationContract.isRequired(req.body.preco, 'Preço é obrigatorio!');
+    _validationContract.isRequired(req.body.foto, 'Insira sua foto!');
+
+    if (req.body.preco) {
+        _validationContract.isTrue(req.body.preco == 0, 'O preço deve ser maior que zero.')
+    }
+
+    ctrlBase.put(_repo, _validationContract, res, req);
 }
 
 produtoController.prototype.get = async (req, res) => {
-    let list = await new repository().getAll();
-    res.status(200).send(list)
+    ctrlBase.get(_repo, res, req)
 }
 
 produtoController.prototype.getbyId = async (req, res) => {
-    let produto = await new repository().getById(req.params.id)
-    res.status(200).send(produto)
+    ctrlBase.getById(_repo, res, req)
 }
 
 produtoController.prototype.delete = async (req, res) => {
-    let produtoDel = await new repository().remove(req.params.id);
-    res.status(204).send(produtoDel)
+    ctrlBase.delete(_repo, res, req)
 }
 
 module.exports = produtoController;

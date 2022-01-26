@@ -3,7 +3,10 @@ const variables = {
         port: process.env.PORT || 3000
     },
     DB: {
-        connection: process.env.connection || 'mongodb+srv://delifoodAdmin:teste@cluster0.ajdme.mongodb.net/delifood?retryWrites=true&w=majority'
+        connection: process.env.connection || 'mongodb+srv://delifoodAdmin:projectTI2019@cluster0.ajdme.mongodb.net/delifood?retryWrites=true&w=majority'
+    },
+    Security: {
+        securityKey: 'd41d8cd98f00b204e9800998ecf8427e'
     }
 }
 
