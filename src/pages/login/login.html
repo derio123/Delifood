@@ -1,0 +1,37 @@
+<ion-content padding class="backImage">
+  <div class="logo">
+    <img src="../../assets/imagens/icon-branco.png" alt="">
+    <span>DeliFood</span>
+  </div>
+  <ion-list no-lines class="list-transparent">
+    <ion-item>
+      <ion-input [(ngModel)]="form.email" type="text" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <button ion-button color="secondary" block round (click)="login()">
+        <ion-icon name="checkbox" item-left></ion-icon>
+        Acessar
+      </button>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <button ion-button block outline round color="secondary" (click)="cadastrar()"> 
+        Cadastrar
+      </button>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <button ion-button block clear color="light">
+        Administrar cadastrados
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
