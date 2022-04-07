@@ -21,13 +21,18 @@ usuarioController.prototype.post = async (req, res) => {
     _validationContract.isTrue(req.body.senha != req.body.senhaConfirmacao,
         'Senha e Confirmação não são iguais, corrigas!');
 
-    let userIsExitEmail = await _repo.IsEmailExist(req.body.email);
-    if (userIsExitEmail) {
-        _validationContract.isTrue((userIsExitEmail.nome != undefined),
-            `Este email ${req.body.email} já existe em nossa base!`)
+    if (req.body.email) {
+        let userIsExitEmail = await _repo.IsEmailExist(req.body.email);
+        if (userIsExitEmail) {
+            _validationContract.isTrue((userIsExitEmail.nome != undefined),
+                `Este email ${req.body.email} já existe em nossa base!`)
+        }
     }
 
-    req.body.senha = md5(req.body.senha);
+    if(req.body.senha) {
+        req.body.senha = md5(req.body.senha);
+    }
+    
 
     ctrlBase.post(_repo, _validationContract, req, res);
 }
@@ -70,7 +75,10 @@ usuarioController.prototype.autenticar = async (req, res) => {
     _validationContract.isRequired(req.body.senha, 'Informe sua senha!');
 
     if (!_validationContract.isValid()) {
-        res.status(400).send({ message: 'Não foi possível efetuar Login', validation: _validationContract._errors() })
+        res.status(400).send({
+            message: 'Não foi possível efetuar Login',
+            validation: _validationContract.errors()
+        })
         return;
     }
 

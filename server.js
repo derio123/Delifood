@@ -1,7 +1,7 @@
 'use strict'
 
-const app = require('../Delifood/bin/express')
-const variables = require('../Delifood/bin/settings/variables')
+const app = require('../DeliFood.api/bin/express')
+const variables = require('../DeliFood.api/bin/settings/variables')
 
 app.listen(variables.Api.port, ()=> {
     console.info(`Inicialização completa da porta:${variables.Api.port}`)
