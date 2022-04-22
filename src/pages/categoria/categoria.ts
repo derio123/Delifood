@@ -15,8 +15,8 @@ export class CategoriaPage {
     console.log('ionViewDidLoad CategoriaPage');
   }
 
-  abriProduct(): void {
-    this.navCtrl.setRoot('TabsPage');
+  abriCategoria(): void {
+    this.navCtrl.push('AdmCategoriasPage');
   }
 
 }

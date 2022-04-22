@@ -18,6 +18,10 @@ export class LoginPage {
 
   async login(): Promise<void> {
     let result = await this.usuarioSRV.autenticate(this.form.email, this.form.senha);
+    if (result.sucess) {
+      UsuarioProvider.registerLogin(result.data);
+      this.navCtrl.setRoot('CategoriaPage');
+    }
     console.log(result);
   }
 

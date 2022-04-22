@@ -14,12 +14,26 @@ export class UsuarioProvider extends ProviderBase<UsuarioModel> {
     super(`${ConfigHelper.Url}usuario`, http)
   }
 
-
   async autenticate(email: string, senha: string): Promise<httpResultModel> {
     return this.http.post(`${this.url}/autenticar`, { email: email, senha: senha });
   }
 
   async register(usuario: UsuarioModel): Promise<httpResultModel> {
-    return this.http.post(`${this.url}/register`, usuario)    
+    return this.http.post(`${this.url}/register`, usuario)
+  }
+
+  static registerLogin(result: any) {
+    localStorage.setItem(ConfigHelper.storageKeys.token,
+      result.token);
+    localStorage.setItem(ConfigHelper.storageKeys.user,
+      JSON.stringify(result.usuario))
+  }
+
+  static get GetTokenAccess(): string {
+    return localStorage.getItem(ConfigHelper.storageKeys.token);
+  }
+
+  static get IsLogado(): boolean {
+    return (localStorage.getItem(ConfigHelper.storageKeys.token) != undefined);
   }
 }

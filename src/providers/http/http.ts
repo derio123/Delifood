@@ -1,8 +1,9 @@
+import { UsuarioProvider } from './../usuario/usuario';
 import { NetworkProvider } from './../network/network';
 import { httpResultModel } from './../../app/models/httpResultModel';
 import { SpinnerProvider } from './../spinner/spinner';
 import { AlertProvider } from './../alert/alert';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -13,12 +14,30 @@ export class HttpProvider {
     private netSRV: NetworkProvider,
     private spinnerSRV: SpinnerProvider) { }
 
+  /**
+   * createHeader
+   */
+  public createHeader(header?:HttpHeaders):HttpHeaders {
+    if(!header) {
+      header = new HttpHeaders();
+    }
+    header = header.append('Content-Type','application/json');
+    header = header.append('Accept','application/json');
+
+    let token = UsuarioProvider.GetTokenAccess;
+    if (token) {
+      header = header.append('x-access-token', token);
+    }
+    return header;
+  }  
 
   public get(url: string): Promise<httpResultModel> {
     this.spinnerSRV.show("Carregando");
+    let header = this.createHeader();
+
     return new Promise((resolve) => {
       if (this.netSRV.getIsOnline) {
-        this.http.get(url).subscribe(_res => {
+        this.http.get(url, {headers: header}).subscribe(_res => {
           this.spinnerSRV.hide();
           resolve({ sucess: true, data: _res, error: undefined });
         }, err => {
