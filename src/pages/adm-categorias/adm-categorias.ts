@@ -23,4 +23,8 @@ export class AdmCategoriasPage {
       this.listCategorias = <Array<CategoriaModel>>categoriaResult.data;
     }
   }
+
+  addOrEdit(model?: CategoriaModel):void {
+    this.navCtrl.push('AdmCategoriaPage', {_categoria: model})
+  }
 }

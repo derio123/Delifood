@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>admCategorias</ion-title>
+    <ion-title>Categorias</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="addOrEdit({})">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content no-padding>
   <ion-list lines>
-    <ion-item *ngFor="let item of listCategorias" text-wrap>
+    <ion-item *ngFor="let item of listCategorias" text-wrap (click)="addOrEdit(item)">
       {{item.titulo}}
     </ion-item>
   </ion-list>

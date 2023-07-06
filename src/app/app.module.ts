@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from "@ionic-native/camera";
+import { Network } from "@ionic-native/network";
 
 import { MyApp } from './app.component';
 import { SpinnerProvider } from '../providers/spinner/spinner';
@@ -12,10 +14,11 @@ import { NetworkProvider } from '../providers/network/network';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriasProvider } from '../providers/categorias/categorias';
+import { CameraProvider } from '../providers/camera/camera';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
   ],
   imports: [
     BrowserModule,
@@ -29,13 +32,19 @@ import { CategoriasProvider } from '../providers/categorias/categorias';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     SpinnerProvider,
     AlertProvider,
     HttpProvider,
     NetworkProvider,
     UsuarioProvider,
-    CategoriasProvider
-  ]
+    CategoriasProvider,
+    CameraProvider,
+    Camera,
+    Network,
+  ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
-export class AppModule {}
+export class AppModule { }

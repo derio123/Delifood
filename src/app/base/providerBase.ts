@@ -1,6 +1,6 @@
 import { httpResultModel } from './../models/httpResultModel';
 import { HttpProvider } from './../../providers/http/http';
-export abstract class  ProviderBase<T> {
+export abstract class ProviderBase<T> {
     constructor(
         public url: string,
         public http: HttpProvider) { }

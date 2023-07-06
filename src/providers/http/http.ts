@@ -14,22 +14,19 @@ export class HttpProvider {
     private netSRV: NetworkProvider,
     private spinnerSRV: SpinnerProvider) { }
 
-  /**
-   * createHeader
-   */
-  public createHeader(header?:HttpHeaders):HttpHeaders {
-    if(!header) {
+  public createHeader(header?: HttpHeaders): HttpHeaders {
+    if (!header) {
       header = new HttpHeaders();
     }
-    header = header.append('Content-Type','application/json');
-    header = header.append('Accept','application/json');
+    header = header.append('Content-Type', 'application/json');
+    header = header.append('Accept', 'application/json');
 
     let token = UsuarioProvider.GetTokenAccess;
     if (token) {
       header = header.append('x-access-token', token);
     }
     return header;
-  }  
+  }
 
   public get(url: string): Promise<httpResultModel> {
     this.spinnerSRV.show("Carregando");
@@ -37,7 +34,7 @@ export class HttpProvider {
 
     return new Promise((resolve) => {
       if (this.netSRV.getIsOnline) {
-        this.http.get(url, {headers: header}).subscribe(_res => {
+        this.http.get(url, { headers: header }).subscribe(_res => {
           this.spinnerSRV.hide();
           resolve({ sucess: true, data: _res, error: undefined });
         }, err => {
@@ -68,14 +65,14 @@ export class HttpProvider {
               msg += `<li>${_err.message}</li>`;
             });
             this.alertSRV.alert(err.error.message, msg);
-          } else if(err.status == 404) {
+          } else if (err.status == 404) {
             this.alertSRV.alert('Informação', err.error.message);
-          } 
+          }
           else {
             this.alertSRV.toast('Não foi possivel acessar, erro na conexão e tente novamente', 'bottom');
-          resolve({ sucess: false, data: undefined, error: err });
+            resolve({ sucess: false, data: undefined, error: err });
           }
-          
+
         });
       } else {
         this.alertSRV.toast('Você está offine e não pode carregar os dados!', 'bottom');
