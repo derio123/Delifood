@@ -10,4 +10,4 @@ import { MinhaContaPage } from './minha-conta';
     IonicPageModule.forChild(MinhaContaPage),
   ],
 })
-export class MinhaContaPageModule {}
+export class MinhaContaPageModule { }

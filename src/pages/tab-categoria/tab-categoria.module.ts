@@ -10,4 +10,4 @@ import { TabCategoriaPage } from './tab-categoria';
     IonicPageModule.forChild(TabCategoriaPage),
   ],
 })
-export class TabCategoriaPageModule {}
+export class TabCategoriaPageModule { }

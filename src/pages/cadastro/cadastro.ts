@@ -21,11 +21,11 @@ export class CadastroPage {
 
   acessarLogin() {
     this.navCtrl.setRoot('LoginPage');
-  }  
+  }
 
   async cadastrar(): Promise<void> {
     let resultCadastro = await this.usuarioSRV.register(this.usuario);
-    if(resultCadastro.sucess) {
+    if (resultCadastro.sucess) {
       this.alertSRV.toast('Cadastro realizado com sucesso!', 'bottom');
       this.navCtrl.setRoot('LoginPage');
     }

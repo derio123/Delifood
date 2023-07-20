@@ -10,9 +10,9 @@ export class NetworkProvider {
   constructor(public plat: Platform) { }
 
   getIsOnline(): boolean {
-    if(this.plat.is('cordova')) {
-      if(navigator.connection && navigator.connection.type){
-        return(navigator.connection.type != Connection.UNKONW && navigator.connection.type != Connection.NONE);
+    if (this.plat.is('cordova')) {
+      if (navigator.connection && navigator.connection.type) {
+        return (navigator.connection.type != Connection.UNKONW && navigator.connection.type != Connection.NONE);
       } else {
         return true;
       }

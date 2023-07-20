@@ -18,9 +18,9 @@ export class TabsPage {
     console.log('ionViewDidLoad TabsPage');
   }
 
-  selecionarCategoria(event):void {
-    let navPrev = event.linker._history[event.linker._history.length -2];
-    if(event.tabTitle == 'Categorias' && navPrev != '/categoria')
+  selecionarCategoria(event): void {
+    let navPrev = event.linker._history[event.linker._history.length - 2];
+    if (event.tabTitle == 'Categorias' && navPrev != '/categoria')
       this.app.getRootNav().setRoot('CategoriaPage');
   }
 }

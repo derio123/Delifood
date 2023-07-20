@@ -10,4 +10,4 @@ import { MeusPedidosPage } from './meus-pedidos';
     IonicPageModule.forChild(MeusPedidosPage),
   ],
 })
-export class MeusPedidosPageModule {}
+export class MeusPedidosPageModule { }

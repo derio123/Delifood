@@ -7,9 +7,9 @@ export abstract class ProviderBase<T> {
 
     get(): Promise<httpResultModel> {
         return this.http.get(this.url);
-    }    
+    }
 
-    getById(uid:string): Promise<httpResultModel> {
+    getById(uid: string): Promise<httpResultModel> {
         return this.http.get(`${this.url}/${uid}`);
     }
 
@@ -17,11 +17,11 @@ export abstract class ProviderBase<T> {
         return this.http.post(this.url, model);
     }
 
-    put(uid:string, model: T): Promise<httpResultModel> {
+    put(uid: string, model: T): Promise<httpResultModel> {
         return this.http.put(`${this.url}/${uid}`, model);
     }
 
-    delete(uid:string): Promise<httpResultModel> {
+    delete(uid: string): Promise<httpResultModel> {
         return this.http.delete(`${this.url}/${uid}`);
-    }   
+    }
 }
