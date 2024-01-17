@@ -1,5 +1,5 @@
 ## Delifood
-#### Aplicativo para pedidos de restaturante e IFOOD;
+#### Aplicativo para pedidos de restaturante e IFOOD
 <div align='center'>
   <div>
     <img height='300px' width='auto' src='Delifood.Ionic/src/assets/imagens/Categoria.png'/>
