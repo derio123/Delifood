@@ -1,0 +1,24 @@
+quantidade {
+    float: right;
+
+    button {
+        width: 30px;
+        height: 30px;
+        border-radius: 20px !important;
+    }
+
+    button[color=light] {
+        float: left;
+    }
+
+    span.numero {
+        margin-top: 9px;
+        float: left;
+        width: 30px;
+        text-align: center;
+    }
+
+    button:active {
+        border-style: inset;
+    }
+}

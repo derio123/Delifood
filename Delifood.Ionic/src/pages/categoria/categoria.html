@@ -1,0 +1,20 @@
+<ion-content no-padding>
+  <!--   <button ion-button round color="primary" (click)="abriCategoria()">
+    Gerencia Categoria
+  </button>
+  <button ion-button round color="primary" (click)="abriProduto()">
+    Gerencia Produto
+  </button> -->
+  <div class="adm">
+    <button ion-button icon-only clear color="light" (click)="adminOptions()">
+      <ion-icon name="settings"></ion-icon>
+    </button>
+  </div>
+  <div class="blut"></div>
+  <p class="tell">O que você deseja comer?</p>
+  <div class="categoria" *ngFor="let item of categorias | orderBy:'titulo'" (click)="selecionarProduto(item)">
+    <div class="imagem" [ngStyle]="{'background-image': 'url(' + item.foto + ')'}"></div>
+    <p>{{item.titulo}} </p>
+  </div>
+  i-
+</ion-content>

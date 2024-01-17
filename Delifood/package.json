@@ -1,0 +1,35 @@
+{
+  "name": "delifood",
+  "version": "1.0.0",
+  "description": "Api feita em NodeJS para utilização do nosso App APOOD",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derio123/Delifood.git"
+  },
+  "keywords": [
+    "Apood",
+    "Nodejs",
+    "Delifood",
+    "Nodejs",
+    "Express"
+  ],
+  "author": "Derio Matheus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derio123/Delifood/issues"
+  },
+  "homepage": "https://github.com/derio123/Delifood#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "mongoose": "^5.13.8",
+    "nodemon": "^2.0.12"
+  }
+}

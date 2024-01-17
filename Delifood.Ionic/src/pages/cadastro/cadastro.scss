@@ -1,0 +1,9 @@
+page-cadastro {
+    .item {
+        border-bottom: 1px solid #000 !important;
+    }
+
+    .list.list-transparent .item-input:last-child {
+        border-bottom: 3px solid darkorange !important;
+    }
+}

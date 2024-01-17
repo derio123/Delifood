@@ -1,0 +1,26 @@
+<ion-content padding>
+  <div class="top"></div>
+  <div class="title">
+    <p>{{categoriaSelecionada.titulo}}</p>
+    <div class="cart">
+      <ion-icon name="cart"></ion-icon>
+      <span>0 Itens</span>
+    </div>
+  </div>
+  <div class="produtos" *ngIf="!isLoading">
+    <ion-item *ngIf="produtos.length == 0">
+      Você não tem nenhuma produto registrado.
+    </ion-item>
+    <div class="produto" *ngFor="let item of produtos | orderBy:'nome'">
+      <div class="img" [ngStyle]="{'background-image': 'url(' + item.foto + ')'}"></div>
+      <div class="titulo">{{item.nome}}</div>
+      <div class="descricao">{{item.descricao}}</div>
+      <div class="preco">{{item.preco | real}}</div>
+      <div class="quant">
+        <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<tab [pagina]="'Categorias'"></tab>

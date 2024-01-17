@@ -1,0 +1,36 @@
+
+ion-content.backImage {
+    background: url(../../assets/imagens/fundo.jpg);
+    background-size: cover;
+}
+
+.backImage .scroll-content {
+    background: rgba(189, 8, 28, 0.6) !important;
+}
+
+.list-transparent .item {
+    background: transparent !important;
+}
+
+.list.list-transparent  .item-input:last-child { 
+    border-bottom: none !important;
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.logo span {
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+    display: block;
+    font-family: ui-sans-serif;
+    font-weight: bolder;
+}
+
+.logo img {
+    width: 120px;
+}
