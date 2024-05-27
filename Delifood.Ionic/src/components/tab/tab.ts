@@ -15,8 +15,8 @@ export class TabComponent implements OnInit {
   ngOnInit(): void {
     this.tabs = [
       { icon: 'pricetags', path: 'CategoriaPage', label: 'Categorias', isSelect: this.pagina == 'Categoria' },
-      { icon: 'contact', path: 'MeusPedidosPage', label: 'Meus Pedidos', isSelect: this.pagina == 'Meus Pedidos' },
-      { icon: 'menu', path: 'MinhaContaPage', label: 'Minha Conta', isSelect: this.pagina == 'Minha Conta' },
+      { icon: 'menu', path: 'MeusPedidosPage', label: 'Meus Pedidos', isSelect: this.pagina == 'Meus Pedidos' },
+      { icon: 'contact', path: 'MinhaContaPage', label: 'Minha Conta', isSelect: this.pagina == 'Minha Conta' },
     ];
   }
 

@@ -34,3 +34,25 @@ ion-content.backImage {
 .logo img {
     width: 120px;
 }
+
+.top {
+    position: fixed;
+    width: 100%;
+    background: red;
+    height: 200px;
+    background: -webkit-gradient(linear, bottom red 0%, to(darkred));
+    background: linear-gradient(to bottom red 0%, darkred 100%);
+    margin: -16px -16px 0 -16px;
+}
+
+.title {
+    position: relative;
+    color: white;
+}
+
+.title p {
+    float: left;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px 0 0 15px;
+}

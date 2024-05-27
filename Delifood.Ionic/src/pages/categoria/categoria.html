@@ -12,7 +12,7 @@
   </div>
   <div class="blut"></div>
   <p class="tell">O que você deseja comer?</p>
-  <div class="categoria" *ngFor="let item of categorias | orderBy:'titulo'" (click)="selecionarProduto(item)">
+  <div class="categoria" *ngFor="let item of categorias | orderBy:'titulo'" (click)="selecionarProduto(item)" tappable>
     <div class="imagem" [ngStyle]="{'background-image': 'url(' + item.foto + ')'}"></div>
     <p>{{item.titulo}} </p>
   </div>

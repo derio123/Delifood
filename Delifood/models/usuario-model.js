@@ -7,6 +7,7 @@ const usuarioModel = new schema({
     nome: { trim: true, index: true, required: true, type: String },
     email: { type: String, required: true },
     senha: { type: String, required: true},
+    telefone: { type: String, required: false},
     foto: { type: String },
     ativo: { type: Boolean, required: true, default: true },
     dataCriacao: { type: Date, default: Date.now }

@@ -3,28 +3,6 @@ page-produtos {
         background: #f8f8f8 !important;
     }
 
-    .top {
-        position: fixed;
-        width: 100%;
-        background: red;
-        height: 200px;
-        background: -webkit-gradient(linear, bottom red 0%, to(darkred));
-        background: linear-gradient(to bottom red 0%, darkred 100%);
-        margin: -16px -16px 0 -16px;
-    }
-
-    .title {
-        position: relative;
-        color: white;
-    }
-
-    .title p {
-        float: left;
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 15px 0 0 15px;
-    }
-
     .title .cart {
         float: right;
         margin: 17px 0 0 15px;
@@ -77,9 +55,15 @@ page-produtos {
 
     .produto .preco {
         font-size: 2rem;
+        color: red;
+        font-weight: bold;
     }
 
-    .produto .quant {
-        
+    .produto .quant {}
+
+    .prodWarning {
+        color: red;
+        font-size: 1.6rem;
+        margin-bottom: 4px;
     }
 }

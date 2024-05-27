@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriasProvider } from '../providers/categorias/categorias';
 import { CameraProvider } from '../providers/camera/camera';
 import { ProdutoProvider } from '../providers/produto/produto';
+import { FormsModule } from '@angular/forms';
+import { CarrinhoProvider } from '../providers/carrinho/carrinho';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ProdutoProvider } from '../providers/produto/produto';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicPageModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,6 +48,7 @@ import { ProdutoProvider } from '../providers/produto/produto';
     Camera,
     Network,
     ProdutoProvider,
+    CarrinhoProvider,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
