@@ -4,7 +4,7 @@
     <p>{{categoriaSelecionada.titulo}}</p>
     <div class="cart" tappable (click)="visualizarCarrinho()">
       <ion-icon name="cart"></ion-icon>
-      <span>{{carrinho.length}} Itens</span>
+      <span>{{carrinho.itens.length}} Itens</span>
     </div>
   </div>
   <div class="produtos" *ngIf="!isLoading">
@@ -16,7 +16,7 @@
         <div class="preco">{{item.preco | real}}</div>
       </div>
       <div class="quant">
-        <quantidade (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
+        <quantidade [produto]="item" (quantidadeAlterada)="quantidadeAlterada(item, $event)"></quantidade>
       </div>
     </div>
   </div>

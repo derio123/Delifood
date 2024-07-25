@@ -1,4 +1,3 @@
-
 ion-content.backImage {
     background: url(../../assets/imagens/fundo.jpg);
     background-size: cover;
@@ -12,7 +11,7 @@ ion-content.backImage {
     background: transparent !important;
 }
 
-.list.list-transparent  .item-input:last-child { 
+.list.list-transparent .item-input:last-child {
     border-bottom: none !important;
 }
 
@@ -55,4 +54,61 @@ ion-content.backImage {
     font-size: 2rem;
     font-weight: bold;
     margin: 15px 0 0 15px;
+}
+
+
+.produtos {
+    margin-top: 60px;
+}
+
+.produtos .produto {
+    position: relative;
+    width: 100%;
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 1px solid #E2DDDD;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    overflow: auto !important;
+}
+
+.produtos .produto .titulo {
+    color: red;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.produtos .produto .descricao {
+    height: 50px;
+}
+
+.produtos .produto .img {
+    float: left;
+    border: 1px solid #E2DDDD;
+    width: 80px;
+    height: 90px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 5%;
+}
+
+.produtos .produto .preco span {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.produtos .produto .preco {
+    font-size: 2rem;
+    color: red;
+    font-weight: bold;
+}
+
+.produtos .prodWarning {
+    color: red;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
 }

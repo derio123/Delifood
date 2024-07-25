@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
 import { CategoriaModel } from '../../app/models/categoriaModel';
 import { ConfigHelper } from '../../app/helpers/configHelper';
+import { carrinhoModel } from '../../app/models/carrinhoModel';
+import { AcaoCarrinhoEnum } from '../../app/enum/acaoCarrinhoEnum';
 
 @IonicPage()
 @Component({
@@ -16,7 +18,7 @@ export class ProdutosPage {
   categoriaSelecionada: CategoriaModel = new CategoriaModel();
   produtos: Array<ProdutoModel> = new Array<ProdutoModel>();
   isLoading: boolean = true;
-  carrinho: any = [];
+  carrinho: carrinhoModel = new carrinhoModel();
 
   constructor(
     public navCtrl: NavController,
@@ -27,9 +29,8 @@ export class ProdutosPage {
   ) { }
 
   ionViewWillEnter() {
-    this.carrinhoSRV.carrinho.subscribe(data => {
+    this.carrinhoSRV.getCarrinho().subscribe(data => {
       this.carrinho = data;
-      console.log('Obs:', this.carrinho);
     })
 
     this.categoriaSelecionada = <CategoriaModel>JSON.parse(localStorage.getItem(ConfigHelper.storageKeys.selectCategory));
@@ -47,9 +48,12 @@ export class ProdutosPage {
     }
   }
 
-  quantidadeAlterada(produto: ProdutoModel, event: number): void {
-    console.log(`${produto.nome} - quantidade:${event}`);
-    this.carrinhoSRV.addNewItem(produto);
+  quantidadeAlterada(produto: ProdutoModel, event: any): void {
+    console.log(`${produto.nome} - quantidade:${event.quantidade} - acao: ${event.acao}`);
+    if(event.acao == AcaoCarrinhoEnum.Adicionar)
+      this.carrinhoSRV.addNewItem(produto);
+    else 
+      this.carrinhoSRV.deleteItem(produto);
   }
 
   viewProduct(item: ProdutoModel) {

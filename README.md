@@ -25,6 +25,10 @@
  - Logo após ter instalado nodejs, digite no terminal ou cmd:
     
     ``npm i`` 
+
+ - Instale o ionic 3 e cordova 8:
+ 
+   `npm i -g ionic@3.9.2 cordova@8.0`   
     
  - Depois digite: 
    
